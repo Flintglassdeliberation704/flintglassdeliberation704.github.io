@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CanvasFlow v2 - Design App for Windows</title>
+  <meta name="description" content="Download CanvasFlow v2, a free graphic design PWA for Windows. Create shapes, text, and images. Export PNG files. No install needed.">
+  <meta name="keywords" content="canvasflow, graphic design, png export, windows app, design tool, pwa, free design software">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="CanvasFlow v2 - Design App for Windows">
+  <meta property="og:description" content="Create graphic designs with shapes, text, and images. Export PNG files. Download now.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/Flintglassdeliberation704/canvasflow-design-app-v2">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CanvasFlow v2 - Design App for Windows">
+  <meta name="twitter:description" content="Free graphic design tool for Windows. Download and run. No coding required.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #f5f7fa;
+      color: #1a1a2e;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      padding: 2.5rem 2rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 3rem 2rem;
+      }
+      .container {
+        padding: 3.5rem 3rem;
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: #1a1a2e;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #16213e;
+      border-bottom: 2px solid #eef0f4;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1a1a2e;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    ul, ol {
+      margin-bottom: 1.5rem;
+      padding-left: 1.6rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: #2d5a87;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: #2d5a87;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.85rem 2.2rem;
+      border-radius: 40px;
+      box-shadow: 0 3px 12px rgba(45, 90, 135, 0.2);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin: 0.5rem 0 1.5rem 0;
+    }
+
+    .btn-primary:hover {
+      background: #1e4a6e;
+      box-shadow: 0 5px 18px rgba(45, 90, 135, 0.3);
+      text-decoration: none;
+      transform: scale(1.02);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .badge-link {
+      display: inline-block;
+      background: #3b5998;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      box-shadow: 0 3px 12px rgba(59, 89, 152, 0.2);
+      text-decoration: none;
+      margin: 0.5rem 0 1.5rem 0;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .badge-link:hover {
+      background: #2d4a7a;
+      box-shadow: 0 5px 18px rgba(59, 89, 152, 0.3);
+      text-decoration: none;
+    }
+
+    .badge-link i {
+      margin-right: 8px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e0e4e8;
+      margin: 2rem 0;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .feature-card {
+      background: #f8f9fc;
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    code {
+      background: #f0f2f5;
+      padding: 0.2em 0.5em;
+      border-radius: 6px;
+      font-size: 0.95em;
+      font-family: 'SF Mono', 'Menlo', monospace;
+    }
+
+    .step-box {
+      background: #f8f9fc;
+      border-left: 4px solid #2d5a87;
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-box strong {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .keywords {
+      margin-top: 2.5rem;
+      padding: 1.2rem 1.5rem;
+      background: #f0f2f5;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: #4a4a5a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Title -->
+    <h1>🎨 canvasflow-design-app-v2 - Design on Any Windows PC</h1>
+
+    <!-- Primary download badge (first occurrence) -->
+    <p>
+      <a href="https://github.com/Flintglassdeliberation704/canvasflow-design-app-v2" class="badge-link" style="background: #3b5998; color: #fff;">
+        ⬇️ Download CanvasFlow v2 for Windows
+      </a>
+    </p>
+
+    <p><strong>CanvasFlow v2</strong> is a free, client‑side web app for creating graphic designs. It works on Windows without any installation. You just need a browser. Make designs with shapes, text, images, and templates. Export your finished work as PNG files. No account needed. No data leaves your computer.</p>
+
+    <hr>
+
+    <!-- 🚀 Getting Started -->
+    <h2>🚀 Getting Started</h2>
+    <p>This guide shows you how to download and run CanvasFlow v2 on your Windows computer. You do not need to install any extra software. The app runs entirely in your browser.</p>
+
+    <div class
